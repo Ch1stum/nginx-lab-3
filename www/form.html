@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="Master-class">
+    <form id="Master-class" action = "process.php" method = "POST">
         <input type="text" name="username" placeholder="Введите имя">
         <input type="text" name="userage" placeholder="Введите возраст">
         <input type="email" name="email" placeholder="Введите email">
@@ -31,14 +31,9 @@
     <div id="result"></div>
     
     <script>
-        document.getElementById("Master-class").addEventListener("submit", function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            let output = "<h3>Данные формы:</h3>";
-            for (const [name, value] of formData.entries()) {
-                output += `<p><b>${name}:</b> ${value}</p>`;
-            }
-            document.getElementById("result").innerHTML = output;
+        document.getElementById("Master-class").addEventListener("submit", function(e){
+            const username = document.querySelector("[name='username']").value;
+            alert("Вы ввели имя: " + username);
         });
     </script>
 </body>

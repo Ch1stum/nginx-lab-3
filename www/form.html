@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Master-class</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="Master-class">
+        <input type="text" name="username" placeholder="Введите имя">
+        <input type="text" name="userage" placeholder="Введите возраст">
+        <input type="email" name="email" placeholder="Введите email">
+        <select name="theme">
+            <option value="">Выберите тему</option>
+            <option value="clay">Глиняные горшки</option>
+            <option value="drawing">Рисование</option>
+            <option value="dance">Танцы</option>
+        </select>
+        <label>
+            <input type="checkbox" name="materials"> Материалы включены
+        </label>
+        <label>
+            <input type="radio" name="format" value="online"> Онлайн
+        </label>
+        <label>
+            <input type="radio" name="format" value="offline"> Очно
+        </label>
+        <input type="date" name="date">
+        <button type="submit">Отправить</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+        document.getElementById("Master-class").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            let output = "<h3>Данные формы:</h3>";
+            for (const [name, value] of formData.entries()) {
+                output += `<p><b>${name}:</b> ${value}</p>`;
+            }
+            document.getElementById("result").innerHTML = output;
+        });
+    </script>
+</body>
+</html>

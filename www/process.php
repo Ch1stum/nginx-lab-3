@@ -28,7 +28,7 @@ $_SESSION['materials'] = $materials;
 $_SESSION['format'] = $format;
 $_SESSION['date'] = $date;
 
-$line = $username . " " . $email . "\n";
+$line = $username . ";" . $email . "\n";
 file_put_contents("data.txt", $line, FILE_APPEND);
 
 header("Location: index.php");

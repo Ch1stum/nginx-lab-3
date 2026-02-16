@@ -1,5 +1,4 @@
 <?php
-// Запускаем сессию (пункт 2 ТЗ)
 session_start();
 
 $username = htmlspecialchars($_POST['username'] ?? '');
@@ -17,6 +16,11 @@ $_SESSION['theme'] = $theme;
 $_SESSION['materials'] = $materials;
 $_SESSION['format'] = $format;
 $_SESSION['date'] = $date;
+
+
+$line = $username . " " . $email . "\n";
+file_put_contents("data.txt", $line, FILE_APPEND);
+
 
 header("Location: index.php");
 exit();
